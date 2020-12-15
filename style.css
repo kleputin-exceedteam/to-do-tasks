@@ -1,0 +1,15 @@
+.input-group input:focus{
+    box-shadow: none !important;
+}
+.btn {
+    box-shadow: none !important;
+}
+.close {
+    float: right;
+    color:red;
+    background-color: transparent;
+    border: none;
+}
+#filter{
+    display: none;
+}
