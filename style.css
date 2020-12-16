@@ -4,9 +4,15 @@
 .input-group{
     padding: 10px 0 !important;
 }
+#task_list{
+    display: none;
+    border-top: 1px solid #8c979a;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+}
 #mark_all_comp{
     width: 25px;
-    padding: 0;
+    padding: 0 18px;
     background-color: transparent;
 }
 #input_task {
@@ -14,36 +20,161 @@
     padding: 6px 12px;
     margin: 0;
 }
+#del_comp_task{
+    float: right;
+    padding: 0 18px;
+    margin: 0 15px;
+    background-color: transparent;
+    border: none;
+    color: transparent;
+    cursor: default;
+}
+#del_comp_task:hover{
+    text-decoration: underline;
+}
+#left_items{
+    float: left;
+    padding: 0 15px;
+    margin: 0 15px;
+}
 .list-group-item{
     padding: 10px 0;
+    border-left: none !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid #ccc !important;
+}
+.list-group-item:last-child{
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
 }
 .span_checkboxes{
     width: 25px;
     text-align: center;
-    padding: 0 6px;
-}
-.btn-default{
-    border: 1px solid black;
+    padding: 0px 6px;
 }
 .name_task{
-    padding: 0px 12px;
+    padding: 0px 26px;
 }
 .btn {
     box-shadow: none !important;
 }
 .close {
     float: right;
-    color:red;
+    color: transparent;
     background-color: transparent;
     border: none;
     padding: 0 15px;
+}
+.close:focus{
+    border: none !important;
+    box-shadow: none !important;
 }
 #filter{
     display: none;
     text-align: center;
     padding: 16px 0;
+    border-top: 1px solid #8c979a;
+    margin-top: 8px;
+    box-shadow:
+    /* The top layer shadow */
+    0 1px 1px rgba(0,0,0,0.15),
+        /* The second layer */
+    0 10px 0 -5px #f2f3f4,
+        /* The second layer shadow */
+    0 10px 1px -4px rgba(0,0,0,0.15),
+        /* The third layer */
+    0 20px 0 -10px #f2f3f4,
+        /* The third layer shadow */
+    0 20px 1px -9px rgba(0,0,0,0.15);
+    /* Padding for demo purposes */
 }
 #main{
     margin: auto;
-    width: 90%;
+    width: 40%;
+    box-shadow: 0 0 24px rgba(0,0,0,0.3);
+}
+.button_group_item{
+    padding: 0 10px;
+    border: 1px solid transparent;
+    margin: 0 2px;
+}
+.button_group_item:hover{
+    border-color: #a7afb2;
+    border-radius: 5px;
+}
+.btn-check:checked+label{
+    border: 1px solid #ff9b9b;
+    border-radius: 5px;
+}
+
+.container {
+
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    /*top: 0;*/
+    left: 14px;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 35px;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: white;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: white;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 10px;
+    top: 5px;
+    width: 5px;
+    height: 13px;
+    border: solid green;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.list-group-item:hover > .close {
+    color: #e5a3a3;
+}
+h1{
+    color: #ff9b9b;
+    text-align: center;
+    font-size: 125px;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-weight: 100;
+}
+
+.span_checkboxes.checked + span {
+    text-decoration: line-through;
+    text-decoration-color: #8c979a;
+    color: #8c979a;
 }
