@@ -1,6 +1,33 @@
 .input-group input:focus{
     box-shadow: none !important;
 }
+.input-group{
+    padding: 10px 0 !important;
+}
+#mark_all_comp{
+    width: 25px;
+    padding: 0;
+    background-color: transparent;
+}
+#input_task {
+    border: none !important;
+    padding: 6px 12px;
+    margin: 0;
+}
+.list-group-item{
+    padding: 10px 0;
+}
+.span_checkboxes{
+    width: 25px;
+    text-align: center;
+    padding: 0 6px;
+}
+.btn-default{
+    border: 1px solid black;
+}
+.name_task{
+    padding: 0px 12px;
+}
 .btn {
     box-shadow: none !important;
 }
@@ -9,7 +36,14 @@
     color:red;
     background-color: transparent;
     border: none;
+    padding: 0 15px;
 }
 #filter{
     display: none;
+    text-align: center;
+    padding: 16px 0;
+}
+#main{
+    margin: auto;
+    width: 90%;
 }

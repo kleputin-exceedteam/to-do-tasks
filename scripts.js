@@ -1,6 +1,10 @@
 const input = $("#input_task");
 const taskList = $("#task_list");
 const button_del_comp = $("#del_comp_task");
+const mark_as_compl = $("#mark_all_comp");
+const active_task_button = $("#active_tasks");
+const complite_task_button = $("#completed_tasks");
+const all_task_button = $("#all_tasks");
 
 
 let all_tasks = [];
@@ -48,6 +52,7 @@ function add_delete_listner() {
         this.parentNode.remove();
         if (all_tasks.length === 0){
             hideTask("filter");
+            hideTask('mark_icon');
         }
     })
 }
@@ -56,9 +61,11 @@ function add_delete_listner() {
 function add_html_elem(new_task){
     taskList.append(
         "<li id = \"" + (id_counter) + "\" class=\"list-group-item\">" +
+        "<span class=\"span_checkboxes\">" +
         "<input class=\"checkboxes\" type=\"checkbox\" value=\"\">" +
-        new_task.name +
-        "<button type=\"button\" class=\"close\" aria-label=\"Close\">\n" +
+        "</span>" +"<span class=\"name_task\">" +
+        new_task.name + "</span>" +
+    "<button type=\"button\" class=\"close\" aria-label=\"Close\">\n" +
         "                    <span aria-hidden=\"true\">&times;</span>\n" +
         "                </button>" +
         "</li>"
@@ -81,19 +88,17 @@ input.keypress(function(event){
     }
     if (all_tasks.length > 0){
         showTask("filter");
+        showTask('mark_icon');
     }
 });
 
 
-$("#mark_all_comp").click(function () { //отметить все как выполненное.
-    $(".checkboxes").prop('checked', true);
-    all_tasks.forEach((val) => {
-        val.status = comp;
-    })
+mark_as_compl.click(function () { //отметить все как выполненное.
+    $(".checkboxes").not(':checked').trigger('click');
 })
 
 
-$("#active_tasks").click(function () {
+active_task_button.click(function () {
     all_tasks.forEach((val) => {
         if (val.status === comp){
             hideTask(val.id);
@@ -104,7 +109,7 @@ $("#active_tasks").click(function () {
 })
 
 
-$("#completed_tasks").click(function () {
+complite_task_button.click(function () {
     all_tasks.forEach((val) => {
         if (val.status === active){
             hideTask(val.id);
@@ -115,7 +120,7 @@ $("#completed_tasks").click(function () {
 })
 
 
-$("#all_tasks").click(function () {
+all_task_button.click(function () {
     all_tasks.forEach((val) => {
         showTask(val.id);
     })
@@ -138,5 +143,6 @@ button_del_comp.click(function () {
     })
     if (all_tasks.length === 0){
         hideTask("filter");
+        hideTask('mark_icon');
     }
 })

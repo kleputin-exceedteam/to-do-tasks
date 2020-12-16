@@ -12,37 +12,32 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div>
+    <div id="main">
         <div class="input-group">
-            <button id="mark_all_comp" class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                Button
+            <button id="mark_all_comp" class="btn" type="button">
+                <svg style="display: none;" id="mark_icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                </svg>
             </button>
             <input id="input_task" type="text" class="form-control" placeholder="What needs to be done?" >
         </div>
         <ul id="task_list" class="list-group">
-            <!--<label class="list-group-item" >
-                <input class="checkboxes" type="checkbox" value="">
-                Test task
-                <button type="button" class="close" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </label>-->
         </ul>
-        <div class="btn btn-group" id="filter">
-            <button class="btn btn-default" type="button" id="all_tasks">
-                All tasks
-            </button>
-            <button class="btn btn-default" type="button" id="active_tasks">
-                Active
-            </button>
-            <button class="btn btn-default" type="button" id="completed_tasks">
-                Completed
-            </button>
+        <div class="btn-group" role="group" id="filter">
+            <input type="radio" class="btn-check" name = "btnradio" id="all_tasks" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="all_tasks">All tasks</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="active_tasks" autocomplete="off">
+            <label class="btn btn-outline-primary" for="active_tasks">Active tasks</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="completed_tasks" autocomplete="off">
+            <label class="btn btn-outline-primary" for="completed_tasks">Completed tasks</label>
+
             <button class="btn btn-default" type="button" id="del_comp_task">
                 Delete completed
             </button>
         </div>
+
     </div>
 </body>
 <script src="./scripts.js"></script>
